@@ -1,0 +1,36 @@
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+execution: local
+script: smoke.test.js
+output: -
+
+scenarios: (100.00%) 1 scenario, 1 max VUs, 1m30s max duration (incl. graceful stop):
+* default: 1 looping VUs for 1m0s (gracefulStop: 30s)
+
+
+running (1m00.7s), 0/1 VUs, 60 complete and 0 interrupted iterations
+default ✓ [======================================] 1 VUs  1m0s
+
+✓ received data successfully
+
+checks.........................: 100.00% ✓ 60       ✗ 0
+data_received..................: 12 kB   189 B/s
+data_sent......................: 4.8 kB  79 B/s
+http_req_blocked...............: avg=97.95µs  min=0s  med=0s       max=2ms      p(90)=504.83µs p(95)=543.87µs
+http_req_connecting............: avg=18.2µs   min=0s  med=0s       max=546.69µs p(90)=0s       p(95)=0s
+✓ http_req_duration..............: avg=2.35ms   min=1ms med=1.9ms    max=21.63ms  p(90)=2.84ms   p(95)=2.97ms
+{ expected_response:true }...: avg=2.35ms   min=1ms med=1.9ms    max=21.63ms  p(90)=2.84ms   p(95)=2.97ms
+http_req_failed................: 0.00%   ✓ 0        ✗ 60
+http_req_receiving.............: avg=332.45µs min=0s  med=279.89µs max=1.06ms   p(90)=913.4µs  p(95)=948.1µs
+http_req_sending...............: avg=59.62µs  min=0s  med=0s       max=543.79µs p(90)=504.71µs p(95)=505.27µs
+http_req_tls_handshaking.......: avg=0s       min=0s  med=0s       max=0s       p(90)=0s       p(95)=0s
+http_req_waiting...............: avg=1.96ms   min=1ms med=1.53ms   max=21.5ms   p(90)=2.03ms   p(95)=2.51ms
+http_reqs......................: 60      0.988063/s
+iteration_duration.............: avg=1.01s    min=1s  med=1.01s    max=1.03s    p(90)=1.01s    p(95)=1.01s
+iterations.....................: 60      0.988063/s
+vus............................: 1       min=1      max=1
+vus_max........................: 1       min=1      max=1

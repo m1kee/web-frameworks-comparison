@@ -1,0 +1,34 @@
+
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+execution: local
+script: sqlconnection.test.js
+output: -
+
+scenarios: (100.00%) 1 scenario, 20 max VUs, 10m30s max duration (incl. graceful stop):
+* default: Up to 20 looping VUs for 10m0s over 2 stages (gracefulRampDown: 30s, gracefulStop: 30s)
+
+
+running (10m01.0s), 00/20 VUs, 10738 complete and 0 interrupted iterations
+default ✓ [======================================] 00/20 VUs  10m0s
+
+data_received..................: 79 MB  131 kB/s
+data_sent......................: 913 kB 1.5 kB/s
+http_req_blocked...............: avg=241ns   min=0s     med=0s     max=450.29µs p(90)=0s     p(95)=0s
+http_req_connecting............: avg=81ns    min=0s     med=0s     max=450.29µs p(90)=0s     p(95)=0s
+http_req_duration..............: avg=2ms     min=1.31ms med=1.95ms max=193.14ms p(90)=2.42ms p(95)=2.49ms
+{ expected_response:true }...: avg=2ms     min=1.31ms med=1.95ms max=193.14ms p(90)=2.42ms p(95)=2.49ms
+http_req_failed................: 0.00%  ✓ 0        ✗ 10738
+http_req_receiving.............: avg=34.91µs min=0s     med=0s     max=548.9µs  p(90)=0s     p(95)=499.4µs
+http_req_sending...............: avg=538ns   min=0s     med=0s     max=442.7µs  p(90)=0s     p(95)=0s
+http_req_tls_handshaking.......: avg=0s      min=0s     med=0s     max=0s       p(90)=0s     p(95)=0s
+http_req_waiting...............: avg=1.96ms  min=1.29ms med=1.94ms max=192.64ms p(90)=2.35ms p(95)=2.44ms
+http_reqs......................: 10738  17.86698/s
+iteration_duration.............: avg=1s      min=1s     med=1s     max=1.2s     p(90)=1s     p(95)=1s
+iterations.....................: 10738  17.86698/s
+vus............................: 0      min=0      max=20
+vus_max........................: 20     min=20     max=20

@@ -11,10 +11,11 @@ async def root():
 @app.route("/users")
 def get_users():
     mydb = mysql.connector.connect(
-        host="localhost",
+        host="mysql-test",
         user="test-user",
         password="test-user-password",
-        database="test"
+        database="test",
+        port=3306
     )
     mycursor = mydb.cursor()
     mycursor.execute("SELECT * FROM users")

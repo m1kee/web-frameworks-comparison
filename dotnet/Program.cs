@@ -5,7 +5,8 @@ var app = builder.Build();
 
 app.MapGet("/", () => new { Message = "Hello World" });
 
-app.MapGet("/users", () => {
+app.MapGet("/users", () =>
+{
     var users = new List<User>();
     using (var connection = new MySqlConnection("Server=localhost;Database=test;Uid=test-user;Pwd=test-user-password;"))
     {
@@ -18,12 +19,12 @@ app.MapGet("/users", () => {
                 while (reader.Read())
                 {
                     var user = new User
-                        {
-                            Id = reader.GetInt32(0),
-                            Name = reader.GetString(1),
-                            Email = reader.GetString(2)
-                        };
-                        users.Add(user);
+                    {
+                        Id = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        Email = reader.GetString(2)
+                    };
+                    users.Add(user);
                 }
             }
         }

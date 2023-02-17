@@ -19,6 +19,27 @@ Then we are going to test the 4 APIs to compare it's behaviors on **stress**, **
 - Environments Configurations
 - Time Helper (this was a .net framework dll converted to a dotnet core code)
 
+## Instalations Required
+
+- **.NET 7 SDK** (https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+- **pip** (https://pypi.org/project/pip/)
+- **fastapi** (```pip install fast api```)
+- **uvicorn** (```pip install uvicorn```) (to run fast api)
+- **flask** (```pip install Flask```)
+- **django** (```pip install django```)
+- **docker** (docker desktop in this case because we are running on windows) (https://www.docker.com/products/docker-desktop/)
+
+## Popularity
+
+Framework | Github followers | Age | Followers per Year | Web frameworks (loved vs dreaded)* 
+|---|---|---|---|---|
+**.NET Core** | [6.1k](https://github.com/dotnet) | 07-2016 (6 years) | ⭐ 1.016 followers/year | ♥️ 71.49 % vs 👎 28.51 % (7260 responses)
+**Fast API** | [54.6k](https://github.com/tiangolo/fastapi) | 12-2018 (4 years) | ⭐ 13.650 followers/year  |  ♥️ 67.74 % vs 👎 32.26 % (2228 responses)
+**Django** | [68.8k](https://github.com/django/django) | 07-2005 (17 years) | ⭐ 4.047 followers/year |  ♥️ 53.10 % vs 👎 46.90 % (4249 responses)
+**Flask** | [61.9k](https://github.com/pallets/flask) | 04-2010 (12 years) | ⭐ 5.158 followers/year |  ♥️ 48.41 % vs 👎 51.59 % (3870 responses)
+
+*By stack overflow state of developer 2022 survey.
+
 ## Features Comparison
 
 Feature | .NET 7 | Django | Flask | Fast API |
@@ -38,7 +59,7 @@ Feature | .NET 7 | Django | Flask | Fast API |
 
 ## Benchmarks
 
-In this case we are going to benchmark the hello world api in all 4 web frameworks. We will use [k6](https://k6.io/docs/es/#que-es-k6>) for this tests.
+In this case we are going to benchmark the hello world api in all 4 web frameworks. We will use [k6](https://k6.io/docs/#que-es-k6) for this tests.
 
 Type of test that we are going to cover:
 

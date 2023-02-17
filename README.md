@@ -44,8 +44,7 @@ Type of test that we are going to cover:
 
 - Stress tests
 - Smoke tests
-- Load tests
-- Soak tests
+- SQL Connection test
 
 ## Benchmarks results
 
@@ -117,4 +116,4 @@ Measures | .NET 7 | Django | Flask | FastAPI | Description
 **http_req_waiting** | 👑 avg=1.96ms | avg=2.4ms | avg=14.08ms | avg=17.72ms | Time spent waiting for response from remote host
 **http_reqs** | 10738 17.86698/s | 👑 21326 35.486711/s | 10581 17.607522/s | 10516 17.49801/s | How many total HTTP requests k6 generated.
 |---|---|---|---|---|---|
-**crowns** | 6 x 👑 | 2 x 👑 | 1 x 👑 | 2 x 👑
+**crowns** | 6 x 👑 | 2 x 👑 | 1 x 👑 | 2 x 👑 |

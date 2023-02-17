@@ -28,6 +28,7 @@ Then we are going to test the 4 APIs to compare it's behaviors on **stress**, **
 - **flask** (```pip install Flask```)
 - **django** (```pip install django```)
 - **docker** (docker desktop in this case because we are running on windows) (https://www.docker.com/products/docker-desktop/)
+- for dockerized apps we need to create a web_framework network to share among all containers
 
 ## Popularity
 

@@ -139,3 +139,47 @@ Measures | .NET 7 | Django | Flask | FastAPI | Description
 **http_reqs** | 10738 17.86698/s | 👑 21326 35.486711/s | 10581 17.607522/s | 10516 17.49801/s | How many total HTTP requests k6 generated.
 |---|---|---|---|---|---|
 **crowns** | 6 x 👑 | 2 x 👑 | 1 x 👑 | 2 x 👑 |
+
+
+## Tests Running on CVIADTQAL01 using Docker Containers
+
+### Smoke Test
+
+This test consist in 1 VU for 1 min. to simulate minimal load to the API.
+
+Measures | .NET 7 | Django | Flask | FastAPI | Description
+|---|---|---|---|---|---|
+**data_received** | 9.8 kB  161 B/s | 9.8 kB  161 B/s | 8.2 kB  135 B/s | 8.0 kB  131 B/s
+**data_sent** | 4.5 kB  74 B/s | 4.5 kB  74 B/s | 4.0 kB  66 B/s | 4.5 kB  74 B/s
+**http_req_blocked** | avg=2.47ms | avg=2.48ms | avg=132.2ms | avg=2.56ms
+**http_req_connecting** | avg=2.46ms | avg=2.47ms | avg=130.36ms | avg=2.55ms
+**http_req_duration** | avg=129.22ms | avg=130.64ms | avg=133.35ms | avg=131.39ms
+**http_req_failed** | 0.00% 0 | 0.00% 0 | 0.00% 0 | 0.00% 0
+**http_req_receiving** | avg=639.55µs | avg=1.37ms | avg=750.57µs | avg=613.94µs
+**http_req_sending** | avg=41.63µs | avg=21.16µs | avg=1.83ms | avg=44.42µs
+**http_req_waiting** | avg=128.54ms | avg=129.24ms | avg=130.76ms | avg=130.73ms
+**http_reqs** | 53 0.877317/s | 53 0.876261/s | 48 0.786364/s | 53 0.874726/s
+|---|---|---|---|---|---|
+**crowns** | 5 x 👑 | 4 x 👑 | 2 x 👑 | 7 x 👑
+
+### SQL Connection Tests
+
+This test consist calling an endpoint that returns all users from a my sql database, it's divided in 2 stages:
+
+- 2 mins from 0 to 20 VUs
+- 8 mins with 20 VUs
+
+Measures | .NET 7 | Django | Flask | FastAPI | Description
+|---|---|---|---|---|---|
+**data_received** | 69 MB  115 kB/s | 365 MB  606 kB/s | 44 MB  73 kB/s | 67 MB  112 kB/s
+**data_sent** | 843 kB 1.4 kB/s | 549 kB  912 B/s | 744 kB 1.2 kB/s | 821 kB 1.4 kB/s
+**http_req_blocked** | avg=281.74µs | avg=133.02ms | avg=128.94ms | avg=284.09µs
+**http_req_connecting** | avg=268.72µs | avg=132.5ms | avg=128.46ms | avg=277.54µs
+**http_req_duration** | avg=132.83ms | avg=615.1ms | avg=156.64ms | avg=163.74ms
+**http_req_failed** | 0.00% 0 | 100.00% ✓ 6169 | 0.00% 0 | 0.00% 0
+**http_req_receiving** | avg=1.04ms | avg=425.77ms | avg=1.85ms | avg=6.52ms
+**http_req_sending** | avg=44.18µs | avg=524.3µs | avg=553.25µs | avg=16.96µs
+**http_req_waiting**  |avg=131.74ms | avg=188.8ms | avg=154.24ms | avg=157.21ms
+**http_reqs** | 9474 15.766286/s | 6169 10.252076/s | 8364 13.915403/s | 9226 15.346438/s
+|---|---|---|---|---|---|
+**crowns** | 6 x 👑 | 2 x 👑 | 1 x 👑 | 2 x 👑 |

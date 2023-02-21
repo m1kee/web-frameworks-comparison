@@ -1,0 +1,38 @@
+
+          /\      |‾‾| /‾‾/   /‾‾/
+     /\  /  \     |  |/  /   /  /
+    /  \/    \    |     (   /   ‾‾\
+   /          \   |  |\  \ |  (‾)  |
+  / __________ \  |__| \__\ \_____/ .io
+
+  execution: local
+     script: smoke.test.js
+     output: engine
+
+  scenarios: (100.00%) 1 scenario, 1 max VUs, 1m30s max duration (incl. graceful stop):
+           * default: 1 looping VUs for 1m0s (gracefulStop: 30s)
+
+
+     ✓ received data successfully
+
+     checks.........................: 100.00% ✓ 53       ✗ 0
+     data_received..................: 9.8 kB  161 B/s
+     data_sent......................: 4.5 kB  74 B/s
+     http_req_blocked...............: avg=2.48ms   min=0s       med=0s       max=131.27ms p(90)=0s       p(95)=30.63µs
+     http_req_connecting............: avg=2.47ms   min=0s       med=0s       max=131.27ms p(90)=0s       p(95)=0s
+   ✓ http_req_duration..............: avg=130.64ms min=126.66ms med=129.28ms max=196.74ms p(90)=130.36ms p(95)=131.08ms
+       { expected_response:true }...: avg=130.64ms min=126.66ms med=129.28ms max=196.74ms p(90)=130.36ms p(95)=131.08ms
+     http_req_failed................: 0.00%   ✓ 0        ✗ 53
+     http_req_receiving.............: avg=1.37ms   min=0s       med=86µs     max=14.82ms  p(90)=1.11ms   p(95)=10.89ms
+     http_req_sending...............: avg=21.16µs  min=0s       med=0s       max=203.7µs  p(90)=86.12µs  p(95)=144.89µs
+     http_req_tls_handshaking.......: avg=0s       min=0s       med=0s       max=0s       p(90)=0s       p(95)=0s
+     http_req_waiting...............: avg=129.24ms min=115.08ms med=128.74ms max=195.84ms p(90)=129.96ms p(95)=130.7ms
+     http_reqs......................: 53      0.876261/s
+     iteration_duration.............: avg=1.14s    min=1.13s    med=1.13s    max=1.27s    p(90)=1.14s    p(95)=1.14s
+     iterations.....................: 53      0.876261/s
+     vus............................: 1       min=1      max=1
+     vus_max........................: 1       min=1      max=1
+
+
+running (1m00.5s), 0/1 VUs, 53 complete and 0 interrupted iterations
+default ✓ [======================================] 1 VUs  1m0s

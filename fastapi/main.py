@@ -13,10 +13,11 @@ async def root():
 async def users() -> List[dict]:
     # Connect to the MySQL database
     connection = mysql.connector.connect(
-        host="localhost",
+        host="mysql-test",
         user="test-user",
         password="test-user-password",
-        database="test"
+        database="test",
+        port=3306
     )
 
     # Create a cursor object to interact with the database

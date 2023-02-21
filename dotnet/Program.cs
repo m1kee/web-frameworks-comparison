@@ -8,7 +8,7 @@ app.MapGet("/", () => new { Message = "Hello World" });
 app.MapGet("/users", () =>
 {
     var users = new List<User>();
-    using (var connection = new MySqlConnection("Server=localhost;Database=test;Uid=test-user;Pwd=test-user-password;"))
+    using (var connection = new MySqlConnection("Server=mysql-test;Database=test;Uid=test-user;Pwd=test-user-password;"))
     {
         connection.Open();
         var query = "SELECT * FROM users";

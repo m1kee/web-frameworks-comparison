@@ -21,18 +21,19 @@ Then we are going to test the 4 APIs to compare it's behaviors on **stress**, **
 
 ## Instalations Required
 
-- **.NET 7 SDK** (https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
-- **pip** (https://pypi.org/project/pip/)
+- **.NET 7 SDK** (<https://dotnet.microsoft.com/en-us/download/dotnet/7.0>)
+- **Python** (<https://www.python.org/downloads/>)
+- **pip** (<https://pypi.org/project/pip/>)
 - **fastapi** (```pip install fast api```)
 - **uvicorn** (```pip install uvicorn```) (to run fast api)
 - **flask** (```pip install Flask```)
 - **django** (```pip install django```)
-- **docker** (docker desktop in this case because we are running on windows) (https://www.docker.com/products/docker-desktop/)
+- **docker** (docker desktop in this case because we are running on windows) (<https://www.docker.com/products/docker-desktop/>)
 - for dockerized apps we need to create a web_framework network to share among all containers
 
 ## Popularity
 
-Framework | Github followers | Age | Followers per Year | Web frameworks (loved vs dreaded)* 
+Framework | Github followers | Age | Followers per Year | Web frameworks (loved vs dreaded)*
 |---|---|---|---|---|
 **.NET Core** | [6.1k](https://github.com/dotnet) | 07-2016 (6 years) | ⭐ 1.016 followers/year | ♥️ 71.49 % vs 👎 28.51 % (7260 responses)
 **Fast API** | [54.6k](https://github.com/tiangolo/fastapi) | 12-2018 (4 years) | ⭐ 13.650 followers/year  |  ♥️ 67.74 % vs 👎 32.26 % (2228 responses)
@@ -140,7 +141,6 @@ Measures | .NET 7 | Django | Flask | FastAPI | Description
 |---|---|---|---|---|---|
 **crowns** | 6 x 👑 | 2 x 👑 | 1 x 👑 | 2 x 👑 |
 
-
 ## Tests Running on CVIADTQAL01 using Docker Containers
 
 ### Smoke Test
@@ -149,20 +149,20 @@ This test consist in 1 VU for 1 min. to simulate minimal load to the API.
 
 Measures | .NET 7 | Django | Flask | FastAPI | Description
 |---|---|---|---|---|---|
-**data_received** | 9.8 kB  161 B/s | 9.8 kB  161 B/s | 8.2 kB  135 B/s | 8.0 kB  131 B/s
-**data_sent** | 4.5 kB  74 B/s | 4.5 kB  74 B/s | 4.0 kB  66 B/s | 4.5 kB  74 B/s
-**http_req_blocked** | 👑 avg=2.47ms | avg=2.48ms | avg=132.2ms | avg=2.56ms
-**http_req_connecting** | 👑 avg=2.46ms | avg=2.47ms | avg=130.36ms | avg=2.55ms
-**http_req_duration** | 👑 avg=129.22ms | avg=130.64ms | avg=133.35ms | avg=131.39ms
-**http_req_failed** |👑 0.00% 0 | 👑 0.00% 0 | 👑 0.00% 0 | 👑 0.00% 0
-**http_req_receiving** | avg=639.55µs | avg=1.37ms | avg=750.57µs | 👑 avg=613.94µs
-**http_req_sending** | avg=41.63µs | 👑 avg=21.16µs | avg=1.83ms | avg=44.42µs
-**http_req_waiting** | 👑 avg=128.54ms | avg=129.24ms | avg=130.76ms | avg=130.73ms
-**http_reqs** | 👑 53 0.877317/s | 👑 53 0.876261/s | 48 0.786364/s | 👑 53 0.874726/s
+**data_received** | 9.8 kB  161 B/s | 9.8 kB  161 B/s | 8.2 kB  135 B/s | 8.0 kB  131 B/s | The total amount of received data
+**data_sent** | 4.5 kB  74 B/s | 4.5 kB  74 B/s | 4.0 kB  66 B/s | 4.5 kB  74 B/s | The total amount of data sent.
+**http_req_blocked** | 👑 avg=2.47ms | avg=2.48ms | avg=132.2ms | avg=2.56ms | Time spent blocked (waiting for a free TCP connection slot) before initiating the request.
+**http_req_connecting** | 👑 avg=2.46ms | avg=2.47ms | avg=130.36ms | avg=2.55ms | Time spent establishing TCP connection to the remote host
+**http_req_duration** | 👑 avg=129.22ms | avg=130.64ms | avg=133.35ms | avg=131.39ms | Total time for the request. (http_req_sending + http_req_waiting + http_req_receiving)
+**http_req_failed** |👑 0.00% 0 | 👑 0.00% 0 | 👑 0.00% 0 | 👑 0.00% 0 | The rate of failed requests according to http status between 200 and 399.
+**http_req_receiving** | avg=639.55µs | avg=1.37ms | avg=750.57µs | 👑 avg=613.94µs | Time spent receiving response data from the remote host
+**http_req_sending** | avg=41.63µs | 👑 avg=21.16µs | avg=1.83ms | avg=44.42µs | Time spent sending data to the remote host.
+**http_req_waiting** | 👑 avg=128.54ms | avg=129.24ms | avg=130.76ms | avg=130.73ms | Time spent waiting for response from remote host
+**http_reqs** | 👑 53 0.877317/s | 👑 53 0.876261/s | 48 0.786364/s | 👑 53 0.874726/s | How many total HTTP requests k6 generated.
 |---|---|---|---|---|---|
 **crowns** | 6 x 👑 | 3 x 👑 | 1 x 👑 | 3 x 👑
 
-### SQL Connection Tests
+### SQL Connection Tests Docker
 
 This test consist calling an endpoint that returns all users from a my sql database, it's divided in 2 stages:
 
@@ -171,15 +171,15 @@ This test consist calling an endpoint that returns all users from a my sql datab
 
 Measures | .NET 7 | Django | Flask | FastAPI | Description
 |---|---|---|---|---|---|
-**data_received** | 69 MB  115 kB/s | 41 MB  68 kB/s | 44 MB  73 kB/s | 67 MB  112 kB/s
-**data_sent** | 843 kB 1.4 kB/s | 1.5 MB 2.5 kB/s | 744 kB 1.2 kB/s | 821 kB 1.4 kB/s
-**http_req_blocked** | avg=281.74µs | 👑 avg=201.57µs | avg=128.94ms | avg=284.09µs
-**http_req_connecting** | avg=268.72µs | 👑 avg=189.05µs | avg=128.46ms | avg=277.54µs
-**http_req_duration** | 👑 avg=132.83ms | avg=286.96ms | avg=156.64ms | avg=163.74ms
-**http_req_failed** | 👑 0.00% 0 | 👑 0.00% 0 | 👑 0.00% 0 | 👑 0.00% 0
-**http_req_receiving** | 👑 avg=1.04ms | avg=154.13ms | avg=1.85ms | avg=6.52ms
-**http_req_sending** | avg=44.18µs | avg=48.97µs | avg=553.25µs | 👑 avg=16.96µs
-**http_req_waiting**  | 👑 avg=131.74ms | avg=132.78ms | avg=154.24ms | avg=157.21ms
-**http_reqs** | 9474 15.766286/s | 👑 13680 22.744313/s | 8364 13.915403/s | 9226 15.346438/s
+**data_received** | 69 MB  115 kB/s | 41 MB  68 kB/s | 44 MB  73 kB/s | 67 MB  112 kB/s | The total amount of received data
+**data_sent** | 843 kB 1.4 kB/s | 1.5 MB 2.5 kB/s | 744 kB 1.2 kB/s | 821 kB 1.4 kB/s | The total amount of data sent.
+**http_req_blocked** | avg=281.74µs | 👑 avg=201.57µs | avg=128.94ms | avg=284.09µs | Time spent blocked (waiting for a free TCP connection slot) before initiating the request.
+**http_req_connecting** | avg=268.72µs | 👑 avg=189.05µs | avg=128.46ms | avg=277.54µs | Time spent establishing TCP connection to the remote host
+**http_req_duration** | 👑 avg=132.83ms | avg=286.96ms | avg=156.64ms | avg=163.74ms | Total time for the request. (http_req_sending + http_req_waiting + http_req_receiving)
+**http_req_failed** | 👑 0.00% 0 | 👑 0.00% 0 | 👑 0.00% 0 | 👑 0.00% 0 | The rate of failed requests according to http status between 200 and 399.
+**http_req_receiving** | 👑 avg=1.04ms | avg=154.13ms | avg=1.85ms | avg=6.52ms | Time spent receiving response data from the remote host
+**http_req_sending** | avg=44.18µs | avg=48.97µs | avg=553.25µs | 👑 avg=16.96µs | Time spent sending data to the remote host.
+**http_req_waiting**  | 👑 avg=131.74ms | avg=132.78ms | avg=154.24ms | avg=157.21ms | Time spent waiting for response from remote host
+**http_reqs** | 9474 15.766286/s | 👑 13680 22.744313/s | 8364 13.915403/s | 9226 15.346438/s | How many total HTTP requests k6 generated.
 |---|---|---|---|---|---|
 **crowns** | 4 x 👑 | 4 x 👑 | 1 x 👑 | 2 x 👑 |
